@@ -1,6 +1,6 @@
 ﻿namespace WpfPlayground.ViewModels
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : IViewMainWindowViewModel
     {
 
     }
