@@ -1,14 +1,20 @@
-﻿using System.Windows;
+﻿using Microsoft.Practices.Unity;
 using WpfPlayground.ViewModels;
 
-namespace WpfPlayground
+namespace WpfPlayground.Views
 {
-    public partial class MainWindow : Window, IViewMainWindowViewModel
+    public partial class MainWindow : IMainWindowViewModel
     {
-        public MainWindow(IViewMainWindowViewModel viewModel)
+        [Dependency]
+        public MainWindowViewModel ViewModel
+        {
+            set { DataContext = value; }
+        }
+
+        public MainWindow(/*IMainWindowViewModel mainWindowViewModel*/)
         {
             InitializeComponent();
-            DataContext = viewModel;
+            //DataContext = mainWindowViewModel;
         }
     }
 }

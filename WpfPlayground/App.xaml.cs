@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Practices.Unity;
 using WpfPlayground.IoC;
+using WpfPlayground.Views;
 
 namespace WpfPlayground
 {

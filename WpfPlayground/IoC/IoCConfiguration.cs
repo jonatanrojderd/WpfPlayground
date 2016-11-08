@@ -1,5 +1,7 @@
 ﻿using Microsoft.Practices.Unity;
+using WpfPlayground.Models;
 using WpfPlayground.ViewModels;
+using WpfPlayground.Views;
 
 namespace WpfPlayground.IoC
 {
@@ -7,8 +9,9 @@ namespace WpfPlayground.IoC
     {
         public static void Register(IUnityContainer container)
         {
-            container.RegisterType<IViewMainWindowViewModel, MainWindow>();
-            container.RegisterType<IViewMainWindowViewModel, MainWindowViewModel>();
+            container.RegisterType<IMainWindowViewModel, MainWindow>();
+            container.RegisterType<IMainWindowViewModel, MainWindowViewModel>();
+            container.RegisterType<IPersonRepository, PersonRepository>();
         }
     }
 }
