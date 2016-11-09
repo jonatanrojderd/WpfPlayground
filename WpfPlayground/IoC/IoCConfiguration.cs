@@ -1,5 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
-using WpfPlayground.Models;
+using WpfPlayground.Repositories;
 using WpfPlayground.ViewModels;
 using WpfPlayground.Views;
 

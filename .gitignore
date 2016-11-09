@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/WpfPlayground/Views/MainWindow.xaml.cs~7384a4b... Added NUnit, Unity and Entity Framework from NuGet + minor refactoring.

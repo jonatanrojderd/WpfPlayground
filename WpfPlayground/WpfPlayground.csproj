@@ -94,8 +94,9 @@
     </Compile>
     <Compile Include="IoC\IoCConfiguration.cs" />
     <Compile Include="IoC\IoCContainer.cs" />
-    <Compile Include="Models\IPersonRepository.cs" />
-    <Compile Include="Models\PersonRepository.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Repositories\IPersonRepository.cs" />
+    <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="ViewModels\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">

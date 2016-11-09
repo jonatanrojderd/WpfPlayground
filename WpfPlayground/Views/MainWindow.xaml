@@ -10,12 +10,25 @@
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <ListBox ItemsSource="{Binding Names}"/>
+        <ListView ItemsSource="{Binding Names}"
+                  Grid.Column="0"
+                  Grid.Row="0"/>
+        
+        <TextBox Text="{}"
+                 Name="FirstName"
+                 Grid.Column="1"
+                 Grid.Row="0"/>
+        
+        <TextBox Text="{}"
+                 Name="LastName"
+                 Grid.Column="1"
+                 Grid.Row="1"/>
     </Grid>
 </Window>
