@@ -11,7 +11,7 @@ namespace WpfPlayground
         {
             base.OnStartup(e);
             IoCConfiguration.Register(IoCContainer.Instance);
-            IoCContainer.Instance.Resolve<MainWindow>().Show();
+            IoCContainer.Instance.Resolve<IMainWindow>().Show();
         }
     }
 }

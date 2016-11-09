@@ -3,7 +3,7 @@ using WpfPlayground.ViewModels;
 
 namespace WpfPlayground.Views
 {
-    public partial class MainWindow : IMainWindowViewModel
+    public partial class MainWindow : IMainWindow
     {
         [Dependency]
         public MainWindowViewModel ViewModel

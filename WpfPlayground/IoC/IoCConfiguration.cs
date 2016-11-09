@@ -9,7 +9,7 @@ namespace WpfPlayground.IoC
     {
         public static void Register(IUnityContainer container)
         {
-            container.RegisterType<IMainWindowViewModel, MainWindow>();
+            container.RegisterType<IMainWindow, MainWindow>();
             container.RegisterType<IMainWindowViewModel, MainWindowViewModel>();
             container.RegisterType<IPersonRepository, PersonRepository>();
         }
