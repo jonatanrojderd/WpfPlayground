@@ -6,7 +6,7 @@ namespace WpfPlayground.Views
     public partial class MainWindow : IMainWindow
     {
         [Dependency]
-        public MainWindowViewModel ViewModel
+        public IMainWindowViewModel ViewModel
         {
             set { DataContext = value; }
         }

@@ -10,25 +10,31 @@
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <ListView ItemsSource="{Binding Names}"
-                  Grid.Column="0"
-                  Grid.Row="0"/>
-        
-        <TextBox Text="{}"
-                 Name="FirstName"
-                 Grid.Column="1"
-                 Grid.Row="0"/>
-        
-        <TextBox Text="{}"
-                 Name="LastName"
-                 Grid.Column="1"
-                 Grid.Row="1"/>
+
+        <ListView ItemsSource="{Binding Persons}"
+                  SelectedItem="{Binding SelectedPerson}"
+                  Grid.Row="0"
+                  Grid.Column="0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FullName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="0" 
+                    Grid.Column="1">
+            <TextBlock Text="First name: "/>
+            <TextBox Text="{Binding SelectedPerson.FirstName}"/>
+            <TextBlock Text="Last name: "/>
+            <TextBox Text="{Binding SelectedPerson.LastName}"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using Microsoft.Practices.Prism.Mvvm;
 
-namespace WpfPlayground
+namespace WpfPlayground.ViewModels
 {
     public abstract class BindableBase : INotifyPropertyChanged
     {

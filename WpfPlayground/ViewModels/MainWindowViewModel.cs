@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using WpfPlayground.Models;
 using WpfPlayground.Repositories;
 
 namespace WpfPlayground.ViewModels
 {
-    public class MainWindowViewModel : IMainWindowViewModel
+    public class MainWindowViewModel : BindableBase, IMainWindowViewModel
     {
         private readonly IPersonRepository _personRepository;
 
@@ -14,10 +12,19 @@ namespace WpfPlayground.ViewModels
         {
             _personRepository = personRepository;
             Persons = new ObservableCollection<Person>(personRepository.Read());
-            Names = new List<string>(Persons.Select(p => p.FullName));
         }
 
-        public ObservableCollection<Person> Persons { get; private set; }
-        public IList<string> Names { get; private set; }
+        public ObservableCollection<Person> Persons { get; }
+
+        private Person _selectedPerson;
+        public Person SelectedPerson
+        {
+            get { return _selectedPerson; }
+            set
+            {
+                _selectedPerson = value; 
+                OnPropertyChanged();
+            }
+        }
     }
 }
