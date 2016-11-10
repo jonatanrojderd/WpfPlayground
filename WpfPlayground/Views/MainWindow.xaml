@@ -35,6 +35,10 @@
             <TextBox Text="{Binding SelectedPerson.FirstName}"/>
             <TextBlock Text="Last name: "/>
             <TextBox Text="{Binding SelectedPerson.LastName}"/>
+            <Button Command="{Binding UpdatePersonCommand}" 
+                    IsEnabled="{Binding IsAnyPersonSelected}">
+                Update selected person
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

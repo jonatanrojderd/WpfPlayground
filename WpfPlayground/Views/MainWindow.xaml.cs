@@ -11,10 +11,9 @@ namespace WpfPlayground.Views
             set { DataContext = value; }
         }
 
-        public MainWindow(/*IMainWindowViewModel mainWindowViewModel*/)
+        public MainWindow()
         {
             InitializeComponent();
-            //DataContext = mainWindowViewModel;
         }
     }
 }
