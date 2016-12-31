@@ -38,5 +38,10 @@ namespace WpfPlayground.Repositories
             update.FirstName = person.FirstName;
             update.LastName = person.LastName;
         }
+
+        public void Delete(Person person)
+        {
+            Persons.Remove(Persons.First(p => p.Id == person.Id));
+        }
     }
 }

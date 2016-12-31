@@ -9,6 +9,7 @@
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -43,5 +44,11 @@
                 Update selected person
             </Button>
         </StackPanel>
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Command="{Binding RemovePersonCommand}" 
+                IsEnabled="{Binding IsAnyPersonSelected}">
+            Remove selected person
+        </Button>
     </Grid>
 </Window>

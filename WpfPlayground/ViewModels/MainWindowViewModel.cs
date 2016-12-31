@@ -17,6 +17,7 @@ namespace WpfPlayground.ViewModels
 
             _addPersonCommand = new RelayCommand(DoAddPerson, CheckIfEmpty);
             _updatePersonCommand = new RelayCommand(DoUpdatePerson, IsAnyPersonSelected);
+            _removePersonCommand = new RelayCommand(DoRemovePerson, IsAnyPersonSelected);
         }
 
         private ObservableCollection<Person> _persons;
@@ -93,6 +94,16 @@ namespace WpfPlayground.ViewModels
             _selectedPerson.FirstName = _firstName;
             _selectedPerson.LastName = _lastName;
             _personRepository.Update(_selectedPerson);
+
+            CleanUp();
+        }
+
+        private readonly RelayCommand _removePersonCommand;
+        public ICommand RemovePersonCommand => _removePersonCommand;
+
+        private void DoRemovePerson()
+        {
+            _personRepository.Delete(_selectedPerson);
 
             CleanUp();
         }

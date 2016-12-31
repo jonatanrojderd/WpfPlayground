@@ -8,5 +8,6 @@ namespace WpfPlayground.Repositories
         IList<Person> Read();
         void Create(string firstName, string lastName);
         void Update(Person person);
+        void Delete(Person person);
     }
 }
