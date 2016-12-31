@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using WpfPlayground.Commands;
 using WpfPlayground.Models;
@@ -16,6 +15,7 @@ namespace WpfPlayground.ViewModels
             _personRepository = personRepository;
             Persons = new ObservableCollection<Person>(personRepository.Read());
 
+            _addPersonCommand = new RelayCommand(DoAddPerson, CheckIfEmpty);
             _updatePersonCommand = new RelayCommand(DoUpdatePerson, IsAnyPersonSelected);
         }
 
@@ -33,6 +33,29 @@ namespace WpfPlayground.ViewModels
             }
         }
 
+        private string _firstName;
+        public string FirstName
+        {
+            get { return _firstName; }
+            set
+            {
+                _firstName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _lastName;
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set
+            {
+                _lastName = value;
+                OnPropertyChanged();
+            }
+        }
+
         private Person _selectedPerson;
         public Person SelectedPerson
         {
@@ -40,9 +63,26 @@ namespace WpfPlayground.ViewModels
             set
             {
                 _selectedPerson = value;
+
+                if (_selectedPerson != null)
+                {
+                    FirstName = _selectedPerson.FirstName;
+                    LastName = _selectedPerson.LastName;
+                }
+
                 _updatePersonCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged();
             }
+        }
+
+        private readonly RelayCommand _addPersonCommand;
+        public ICommand AddPersonCommand => _addPersonCommand;
+
+        private void DoAddPerson()
+        {
+            _personRepository.Create(FirstName, LastName);
+            
+            CleanUp();
         }
 
         private readonly RelayCommand _updatePersonCommand;
@@ -50,13 +90,32 @@ namespace WpfPlayground.ViewModels
 
         private void DoUpdatePerson()
         {
+            _selectedPerson.FirstName = _firstName;
+            _selectedPerson.LastName = _lastName;
             _personRepository.Update(_selectedPerson);
+
+            CleanUp();
+        }
+
+        private void CleanUp()
+        {
             Persons = new ObservableCollection<Person>(_personRepository.Read());
+
+            SelectedPerson = null;
+            FirstName = "";
+            LastName = "";
         }
 
         private bool IsAnyPersonSelected()
         {
             return _selectedPerson != null;
+        }
+
+        private bool CheckIfEmpty()
+        {
+            return !string.IsNullOrWhiteSpace(_firstName)
+                && !string.IsNullOrWhiteSpace(_lastName)
+                && !IsAnyPersonSelected();
         }
     }
 }

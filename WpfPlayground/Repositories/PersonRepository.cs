@@ -22,15 +22,21 @@ namespace WpfPlayground.Repositories
             return Persons;
         }
 
-        public void Update(Person person)
+        public void Create(string firstName, string lastName)
         {
-            Persons.Remove(Persons.First(p => p.Id == person.Id));
             Persons.Add(new Person
             {
-                Id = person.Id,
-                FirstName = person.FirstName,
-                LastName = person.LastName
+                Id = Guid.NewGuid(),
+                FirstName = firstName,
+                LastName = lastName
             });
+        }
+
+        public void Update(Person person)
+        {
+            var update = Persons.First(p => p.Id == person.Id);
+            update.FirstName = person.FirstName;
+            update.LastName = person.LastName;
         }
     }
 }

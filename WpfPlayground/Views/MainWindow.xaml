@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfPlayground"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
         WindowStartupLocation="CenterScreen">
@@ -32,9 +31,13 @@
         <StackPanel Grid.Row="0" 
                     Grid.Column="1">
             <TextBlock Text="First name: "/>
-            <TextBox Text="{Binding SelectedPerson.FirstName}"/>
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Last name: "/>
-            <TextBox Text="{Binding SelectedPerson.LastName}"/>
+            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Command="{Binding AddPersonCommand}" 
+                    IsEnabled="{Binding IsAnyPersonSelected}">
+                Add new person
+            </Button>
             <Button Command="{Binding UpdatePersonCommand}" 
                     IsEnabled="{Binding IsAnyPersonSelected}">
                 Update selected person
