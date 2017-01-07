@@ -17,11 +17,6 @@ namespace WpfPlayground.Repositories
             }
         };
 
-        public IList<Person> Read()
-        {
-            return Persons;
-        }
-
         public void Create(string firstName, string lastName)
         {
             Persons.Add(new Person
@@ -30,6 +25,11 @@ namespace WpfPlayground.Repositories
                 FirstName = firstName,
                 LastName = lastName
             });
+        }
+
+        public IList<Person> Read()
+        {
+            return Persons;
         }
 
         public void Update(Person person)

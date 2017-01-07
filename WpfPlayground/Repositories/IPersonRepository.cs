@@ -5,8 +5,8 @@ namespace WpfPlayground.Repositories
 {
     public interface IPersonRepository
     {
-        IList<Person> Read();
         void Create(string firstName, string lastName);
+        IList<Person> Read();
         void Update(Person person);
         void Delete(Person person);
     }
