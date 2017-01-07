@@ -3,17 +3,18 @@ using WpfPlayground.ViewModels;
 
 namespace WpfPlayground.Views
 {
-    public partial class MainWindow : IMainWindow
+    public partial class MainWindow : IMainWindowViewModel
     {
         [Dependency]
-        public IMainWindowViewModel ViewModel
+        public MainWindowViewModel ViewModel
         {
             set { DataContext = value; }
         }
 
-        public MainWindow()
+        public MainWindow(/*IMainWindowViewModel mainWindowViewModel*/)
         {
             InitializeComponent();
+            //DataContext = mainWindowViewModel;
         }
     }
 }
