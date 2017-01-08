@@ -1,47 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Context;
 using WpfPlayground.Models;
 
 namespace WpfPlayground.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        public IList<Person> Persons { get; } = new List<Person>
-        {
-            new Person
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Jonte",
-                LastName = "RD"
-            }
-        };
 
         public void Create(string firstName, string lastName)
         {
-            Persons.Add(new Person
+            using (var context = new DatabaseContext())
             {
-                Id = Guid.NewGuid(),
-                FirstName = firstName,
-                LastName = lastName
-            });
+                context.Persons.Add(new Person
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = firstName,
+                    LastName = lastName
+                });
+                context.SaveChanges();
+            }
         }
 
         public IList<Person> Read()
         {
-            return Persons;
+            using (var context = new DatabaseContext())
+            {
+                return context.Persons.ToList();
+            }
         }
 
         public void Update(Person person)
         {
-            var update = Persons.First(p => p.Id == person.Id);
-            update.FirstName = person.FirstName;
-            update.LastName = person.LastName;
+            using (var context = new DatabaseContext())
+            {
+                var update = context.Persons.First(p => p.Id == person.Id);
+                update.FirstName = person.FirstName;
+                update.LastName = person.LastName;
+
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Person person)
         {
-            Persons.Remove(Persons.First(p => p.Id == person.Id));
+            using (var context = new DatabaseContext())
+            {
+                var delete = context.Persons.First(p => p.Id == person.Id);
+
+                context.Persons.Remove(delete);
+                context.SaveChanges();
+            }
         }
     }
 }
