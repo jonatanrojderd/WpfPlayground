@@ -1,5 +1,6 @@
 namespace Data.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     
     public partial class ChangeFirstNameAndLastNameToNotNull : DbMigration
@@ -12,8 +13,8 @@ namespace Data.Migrations
         
         public override void Down()
         {
-            AlterColumn("dbo.People", "FirstName", c => c.String());
             AlterColumn("dbo.People", "LastName", c => c.String());
+            AlterColumn("dbo.People", "FirstName", c => c.String());
         }
     }
 }

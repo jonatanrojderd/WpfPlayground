@@ -13,7 +13,7 @@ namespace Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201701081330274_ChangeFirstNameAndLastNameToNotNull"; }
+            get { return "201701081336280_ChangeFirstNameAndLastNameToNotNull"; }
         }
         
         string IMigrationMetadata.Source

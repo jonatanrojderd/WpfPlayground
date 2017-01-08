@@ -59,9 +59,9 @@
     <Compile Include="Migrations\201701081256532_AddAge.Designer.cs">
       <DependentUpon>201701081256532_AddAge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701081330274_ChangeFirstNameAndLastNameToNotNull.cs" />
-    <Compile Include="Migrations\201701081330274_ChangeFirstNameAndLastNameToNotNull.Designer.cs">
-      <DependentUpon>201701081330274_ChangeFirstNameAndLastNameToNotNull.cs</DependentUpon>
+    <Compile Include="Migrations\201701081336280_ChangeFirstNameAndLastNameToNotNull.cs" />
+    <Compile Include="Migrations\201701081336280_ChangeFirstNameAndLastNameToNotNull.Designer.cs">
+      <DependentUpon>201701081336280_ChangeFirstNameAndLastNameToNotNull.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
@@ -80,8 +80,8 @@
     <EmbeddedResource Include="Migrations\201701081256532_AddAge.resx">
       <DependentUpon>201701081256532_AddAge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701081330274_ChangeFirstNameAndLastNameToNotNull.resx">
-      <DependentUpon>201701081330274_ChangeFirstNameAndLastNameToNotNull.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701081336280_ChangeFirstNameAndLastNameToNotNull.resx">
+      <DependentUpon>201701081336280_ChangeFirstNameAndLastNameToNotNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
