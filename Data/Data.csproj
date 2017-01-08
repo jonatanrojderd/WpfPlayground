@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201701081217164_InitialCreate.Designer.cs">
       <DependentUpon>201701081217164_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701081256532_AddAge.cs" />
+    <Compile Include="Migrations\201701081256532_AddAge.Designer.cs">
+      <DependentUpon>201701081256532_AddAge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701081217164_InitialCreate.resx">
       <DependentUpon>201701081217164_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701081256532_AddAge.resx">
+      <DependentUpon>201701081256532_AddAge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
