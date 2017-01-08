@@ -120,7 +120,6 @@
     <Compile Include="ViewModels\BindableBase.cs" />
     <Compile Include="IoC\IoCConfiguration.cs" />
     <Compile Include="IoC\IoCContainer.cs" />
-    <Compile Include="Models\Person.cs" />
     <Compile Include="Repositories\IPersonRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="ViewModels\IMainWindowViewModel.cs" />
@@ -162,7 +161,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{68ee07cf-df4e-439e-b713-747ab2b54ea4}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
